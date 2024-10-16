@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -exec basename \{} ';' | sort -nr | head 
+find . -type f -printf "%f\n" | sort -nr | head 
