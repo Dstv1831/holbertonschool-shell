@@ -1,2 +1,2 @@
 #!/bin/bash
-grep '[[:space:]]*[0-9]*[13579][[:space:]]'
+tail -n +2
