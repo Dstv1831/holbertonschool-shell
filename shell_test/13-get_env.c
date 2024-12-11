@@ -33,9 +33,3 @@ char *_getenv(const char *name)
 	}
 	return(NULL);
 }
-
-int main(void)
-{
-	_getenv("PWD");
-	return (0);
-}
