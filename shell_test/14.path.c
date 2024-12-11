@@ -3,29 +3,22 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/stat.h>
+#include "main.h"
 
 /**
- * main - Find the PATH to a file
+ * main - prints all directorys in PATH
  *
  * Return: Always 0.
  */
 
-int main(int ac, char **av)
+int main(void)
 {
-	int i = 1;
-	struct stat st;
-	char *env_path = getenv("PATH");
-	char *path, *full_path, *copy_env_path;
+	char *path = get_env("PATH");
 
-	while (i < ac)
-    	{
-		copy_env_path = strdup(env_path);
-		printf("searching for %s\n", av[i]);
 		path = strtok(copy_env_path, ":");
 		while (path != NULL)
 		{
 			full_path = malloc(strlen(path) + strlen(av[i]) + 2);
-			// sprntf - is used to construct a file path by combining two strings, path and av[i], with a / separator
 			sprintf(full_path, "%s/%s", path, av[i]);	
         		if (stat(full_path, &st) == 0)
            			printf("Found in %s\n", full_path);
